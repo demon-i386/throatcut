@@ -83,7 +83,7 @@ pub extern "C" fn main(_argc: isize, _argv: *const *const u8) -> isize {
     
 	let dllfile = PeFile::from_bytes(&image_bytes).unwrap();
     let exports = dllfile.exports().unwrap();
-    let loader_export = exports.by().unwrap().by().unwrap().name(obfstr!("iLoveCatsXD")).unwrap();
+    let loader_export = exports.by().unwrap().by().unwrap().name(obfstr!("EXPORTNAME")).unwrap();
     let loader_address = loader_export.symbol().unwrap();
 
     let loader_rva = dllfile.file_offset_to_rva(loader_address as usize).unwrap()-0x1800;
